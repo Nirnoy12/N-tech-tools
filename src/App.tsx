@@ -11,7 +11,7 @@ function App() {
       size: "65.90 MB",
       version: "1.0",
       icon: Folders,
-      downloadUrl: "/downloads/FileOrganizer.exe",
+      downloadUrl: "https://github.com/Nirnoy12/N-tech-tools/releases/download/v1.1.0/FileOrganizer.exe",
       instructions: {
         installation: [
           "Copy FileOrganizer.exe to any location on your PC (e.g., Desktop or Documents folder)",
@@ -49,7 +49,13 @@ function App() {
   ];
 
   const handleDownload = (downloadUrl: string) => {
-    window.location.href = downloadUrl;
+    const confirmDownload = window.confirm(
+      "You are about to be redirected to download FileOrganizer.exe.\n\n" +
+      "Click OK to continue to the download page, or Cancel to stay on this page."
+    );
+    if (confirmDownload) {
+      window.open(downloadUrl, '_blank');
+    }
   };
 
   return (
